@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Login or sign up to access Image Gallery">
+    <title>Welcome | Image Gallery</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="gallery.css">
+    <link rel="stylesheet" href="pages.css">
+</head>
+<body class="auth-entry-page dark-theme">
+    <main class="auth-entry-wrap">
+        <section class="auth-entry-showcase" aria-label="Gallery preview">
+            <div class="auth-showcase-slider">
+                <figure class="auth-showcase-slide">
+                    <img src="images/Sunset Sparrows.jpeg" alt="Gallery preview 1">
+                </figure>
+                <figure class="auth-showcase-slide">
+                    <img src="images/Twilight Mirror.jpeg" alt="Gallery preview 2">
+                </figure>
+                <figure class="auth-showcase-slide">
+                    <img src="images/Tropical Sunset Over Coastal Palms.jpg" alt="Gallery preview 3">
+                </figure>
+            </div>
+            <div class="auth-showcase-overlay">
+                <h2>Discover Art Stories</h2>
+                <p>Preview masterpieces and artist collections before signing in.</p>
+            </div>
+        </section>
+        <section class="auth-entry-card">
+            <div class="auth-entry-brand">
+                <i class="fas fa-images"></i>
+                <h1>Image Gallery</h1>
+                <p>Login or create an account to continue</p>
+            </div>
+
+            <div class="auth-entry-tabs" role="tablist" aria-label="Authentication Mode">
+                <button id="entryLoginTab" class="auth-entry-tab active" type="button" role="tab" aria-selected="true">Login</button>
+                <button id="entrySignupTab" class="auth-entry-tab" type="button" role="tab" aria-selected="false">Sign Up</button>
+            </div>
+
+            <form id="entryAuthForm" class="auth-entry-form">
+                <div class="auth-entry-row" id="entryNameRow" style="display:none;">
+                    <label for="entryName">Full Name</label>
+                    <input id="entryName" type="text" placeholder="Enter your full name">
+                </div>
+                <div class="auth-entry-row auth-entry-method-row" id="entryMethodRow" style="display:none;">
+                    <label>Sign up with</label>
+                    <div class="auth-entry-methods">
+                        <button id="entryMethodEmail" class="auth-entry-method-btn active" type="button" data-method="email">Email</button>
+                        <button id="entryMethodMobile" class="auth-entry-method-btn" type="button" data-method="mobile">Mobile Number</button>
+                    </div>
+                </div>
+                <div class="auth-entry-row" id="entryEmailRow">
+                    <label for="entryEmail">Email</label>
+                    <input id="entryEmail" type="email" placeholder="Enter your email">
+                </div>
+                <div class="auth-entry-row" id="entryMobileRow" style="display:none;">
+                    <label for="entryMobile">Mobile Number</label>
+                    <input id="entryMobile" type="tel" placeholder="Enter mobile number">
+                </div>
+                <div class="auth-entry-row">
+                    <label for="entryPassword">Password</label>
+                    <input id="entryPassword" type="password" placeholder="Enter your password" required>
+                </div>
+                <div class="auth-otp-wrap" id="entryOtpWrap" style="display:none;">
+                    <h4>OTP Verification</h4>
+                    <div class="auth-otp-block" id="entryEmailOtpBlock">
+                        <label for="entryEmailOtp">Email OTP</label>
+                        <div class="auth-otp-row">
+                            <input id="entryEmailOtp" type="text" maxlength="6" placeholder="6-digit code">
+                            <button type="button" id="entrySendEmailOtp" class="auth-entry-otp-btn">Send OTP</button>
+                            <button type="button" id="entryVerifyEmailOtp" class="auth-entry-otp-btn verify">Verify</button>
+                        </div>
+                        <small id="entryEmailOtpStatus" class="auth-otp-status">Not verified</small>
+                    </div>
+                    <div class="auth-otp-block" id="entryMobileOtpBlock" style="display:none;">
+                        <label for="entryMobileOtp">Mobile OTP</label>
+                        <div class="auth-otp-row">
+                            <input id="entryMobileOtp" type="text" maxlength="6" placeholder="6-digit code">
+                            <button type="button" id="entrySendMobileOtp" class="auth-entry-otp-btn">Send OTP</button>
+                            <button type="button" id="entryVerifyMobileOtp" class="auth-entry-otp-btn verify">Verify</button>
+                        </div>
+                        <small id="entryMobileOtpStatus" class="auth-otp-status">Not verified</small>
+                    </div>
+                </div>
+                <button class="auth-entry-submit" id="entrySubmitBtn" type="submit">Login</button>
+            </form>
+            <form class="auth-entry-social" id="entrySocialForm" aria-label="Continue with social accounts">
+                <fieldset class="auth-entry-social-fieldset">
+                    <legend>Or continue with</legend>
+                    <div class="auth-entry-social-buttons">
+                        <button type="button" class="auth-entry-social-btn google" data-provider="google" aria-label="Continue with Google">
+                            <i class="fab fa-google" aria-hidden="true"></i> Google
+                        </button>
+                        <button type="button" class="auth-entry-social-btn facebook" data-provider="facebook" aria-label="Continue with Facebook">
+                            <i class="fab fa-facebook-f" aria-hidden="true"></i> Facebook
+                        </button>
+                        <button type="button" class="auth-entry-social-btn twitter" data-provider="twitter" aria-label="Continue with Twitter">
+                            <i class="fab fa-x-twitter" aria-hidden="true"></i> X
+                        </button>
+                        <button type="button" class="auth-entry-social-btn linkedin" data-provider="linkedin" aria-label="Continue with LinkedIn">
+                            <i class="fab fa-linkedin-in" aria-hidden="true"></i> LinkedIn
+                        </button>
+                    </div>
+                </fieldset>
+            </form>
+        </section>
+    </main>
+
+    <div class="notification" id="notification"></div>
+    <div class="social-auth-modal" id="socialAuthModal" aria-hidden="true">
+        <button class="social-auth-backdrop" id="socialAuthBackdrop" type="button" aria-label="Close social login dialog"></button>
+        <div class="social-auth-dialog" role="dialog" aria-modal="true" aria-labelledby="socialAuthTitle">
+            <button class="social-auth-close" id="socialAuthClose" type="button" aria-label="Close">
+                <i class="fas fa-times" aria-hidden="true"></i>
+            </button>
+            <div class="social-auth-head">
+                <div class="social-auth-icon" id="socialAuthIcon">
+                    <i class="fas fa-user-shield" aria-hidden="true"></i>
+                </div>
+                <h3 id="socialAuthTitle">Continue with Social Account</h3>
+                <p id="socialAuthSubtitle">Use your provider account email to continue.</p>
+            </div>
+            <form id="socialAuthDialogForm" class="social-auth-form">
+                <label for="socialAuthEmail">Account Email</label>
+                <input id="socialAuthEmail" type="email" placeholder="name@example.com" autocomplete="email" required>
+                <small id="socialAuthHint">We verify your account and continue securely.</small>
+                <div class="social-auth-actions">
+                    <button type="button" class="social-auth-btn ghost" id="socialAuthCancel">Cancel</button>
+                    <button type="submit" class="social-auth-btn primary" id="socialAuthContinue">Continue</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="utils.js"></script>
+    <script src="entry-auth.js"></script>
+</body>
+</html>

@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Meet our talented artists">
+    <title>All Artists | Image Gallery</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="gallery.css">
+    <link rel="stylesheet" href="pages.css">
+</head>
+<body class="dark-theme">
+    <!-- Header with Navigation -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-images"></i>
+                    <span>Image Gallery</span>
+                </div>
+                <nav class="main-nav">
+                    <a href="gallery.html#home" class="nav-btn">
+                        <i class="fas fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                   
+                    <a href="artworks.html" class="nav-btn">
+                        <i class="fas fa-palette"></i>
+                        <span>Artwork</span>
+                    </a>
+                    <a href="artists.html" class="nav-btn active">
+                        <i class="fas fa-user-tie"></i>
+                        <span>Artist</span>
+                    </a>
+                    <a href="gallery.html#exhibition" class="nav-btn">
+                        <i class="fas fa-landmark"></i>
+                        <span>Exhibition</span>
+                    </a>
+                    <a href="user-collection.html" class="nav-btn">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <span>My Collection</span>
+                    </a>
+                </nav>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <button class="settings-btn" id="settingsBtn">
+                    <i class="fas fa-cog"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav" id="mobileNav">
+        <a href="gallery.html#home" class="mobile-nav-link">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+        </a>
+      
+        <a href="artworks.html" class="mobile-nav-link">
+            <i class="fas fa-palette"></i>
+            <span>Artwork</span>
+        </a>
+        <a href="artists.html" class="mobile-nav-link active">
+            <i class="fas fa-user-tie"></i>
+            <span>Artist</span>
+        </a>
+        <a href="gallery.html#exhibition" class="mobile-nav-link">
+            <i class="fas fa-landmark"></i>
+            <span>Exhibition</span>
+        </a>
+          <a href="user-collection.html" class="mobile-nav-link">
+            <i class="fas fa-cloud-upload-alt"></i>
+            <span>My Collection</span>
+        </a>
+    </div>
+
+    <!-- Page Header -->
+    <section class="page-header artist-header">
+        <div class="page-header-overlay"></div>
+        <div class="container">
+            <h1><i class="fas fa-user-tie"></i> All Artists</h1>
+            <p>Meet the talented artists behind our collection</p>
+        </div>
+    </section>
+
+    <!-- Filter & Sort Controls -->
+    <section class="controls-section">
+        <div class="container">
+            <div class="controls-bar">
+                <div class="filter-group">
+                    <label><i class="fas fa-sort"></i> Sort By:</label>
+                    <select id="sortSelect" class="control-select">
+                        <option value="name">Name A-Z</option>
+                        <option value="works">Most Works</option>
+                        <option value="awards">Most Awards</option>
+                    </select>
+                </div>
+                <div class="search-group">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="searchInput" placeholder="Search artists..." class="search-input">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Artists Grid -->
+    <section class="artists-page-section">
+        <div class="container">
+            <div class="results-info">
+                <p><span id="resultsCount">0</span> artists found</p>
+            </div>
+            <div class="artist-grid" id="artistGrid">
+                <!-- Artists will be loaded by JavaScript -->
+            </div>
+            <div class="no-results" id="noResults" style="display: none;">
+                <i class="fas fa-search"></i>
+                <h3>No artists found</h3>
+                <p>Try adjusting your search terms</p>
+            </div>
+            
+            <!-- Back to Home Button -->
+            <div class="back-to-home">
+                <a href="gallery.html" class="btn-back-home">
+                    <i class="fas fa-home"></i> Back to Home
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h3>Image Gallery Studio</h3>
+                    <p>Curated digital gallery for collectors, artists, and creative teams building standout visual collections.</p>
+                    <div class="footer-qr">
+                        <a href="https://teja-0999.github.io/gallery-/" target="_blank" rel="noopener noreferrer" aria-label="Open Image Gallery website">
+                            <img src="website-qr.png" alt="QR code for Image Gallery website">
+                        </a>
+                        <p class="footer-qr-text">Scan to open our website</p>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Professional Services</h4>
+                    <ul>
+                        <li>Artist Portfolio Hosting</li>
+                        <li>Collection Curation</li>
+                        <li>Exhibition Planning</li>
+                        <li>Private Viewing Support</li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact Details</h4>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> +1 (555) 123-4567</li>
+                        <li><i class="fas fa-envelope"></i> hello@imagegallery.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Art District, New York</li>
+                        <li><i class="fas fa-clock"></i> Mon-Sat, 10:00 AM - 7:00 PM</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Image Gallery Studio. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Notification -->
+    <div class="notification" id="notification"></div>
+
+    <!-- Artist Modal -->
+    <div class="image-modal artist-modal-enhanced" id="artistModal">
+        <button class="modal-close" id="artistModalClose">
+            <i class="fas fa-times"></i>
+        </button>
+        <button class="modal-prev" id="artistModalPrev">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="modal-next" id="artistModalNext">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+        
+        <div class="modal-content artist-modal-content">
+            <div class="modal-image-container artist-hero">
+                <img id="artistModalImage" src="" alt="">
+                <div class="artist-badge" id="artistBadge">
+                    <i class="fas fa-star"></i> Featured Artist
+                </div>
+            </div>
+            <div class="modal-info artist-modal-info">
+                <div class="artist-header">
+                    <div>
+                        <h2 id="artistModalName"></h2>
+                        <p id="artistModalSpecialty" class="modal-artist"></p>
+                    </div>
+                    <div class="artist-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                        <span class="rating-text">4.8</span>
+                    </div>
+                </div>
+                
+                <p id="artistModalBio" class="artist-bio-text"></p>
+                
+                <!-- Statistics Section -->
+                <div class="artist-stats-section">
+                    <h3><i class="fas fa-chart-bar"></i> Statistics</h3>
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-icon"><i class="fas fa-palette"></i></div>
+                            <div class="stat-info">
+                                <span class="stat-value" id="artistModalWorks">0</span>
+                                <span class="stat-label">Artworks</span>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon"><i class="fas fa-award"></i></div>
+                            <div class="stat-info">
+                                <span class="stat-value" id="artistModalAwards">0</span>
+                                <span class="stat-label">Awards</span>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon"><i class="fas fa-map-marker-alt"></i></div>
+                            <div class="stat-info">
+                                <span class="stat-value" id="artistModalLocation">-</span>
+                                <span class="stat-label">Location</span>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon"><i class="fas fa-users"></i></div>
+                            <div class="stat-info">
+                                <span class="stat-value" id="artistFollowers">2.5K</span>
+                                <span class="stat-label">Followers</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Portfolio Preview -->
+                <div class="artist-portfolio-preview">
+                    <h3><i class="fas fa-images"></i> Recent Works</h3>
+                    <div class="portfolio-grid" id="artistPortfolio">
+                        <!-- Portfolio items will be inserted here -->
+                    </div>
+                </div>
+                
+                <!-- Social Media Section -->
+                <div class="artist-modal-social">
+                    <h3><i class="fas fa-share-alt"></i> Connect with Artist</h3>
+                    <div class="social-links" id="artistModalSocial">
+                        <!-- Social links will be inserted here -->
+                    </div>
+                </div>
+                
+                <!-- Action Buttons -->
+                <div class="modal-actions artist-actions">
+                    <button class="btn-action btn-primary" id="followArtistBtn">
+                        <i class="fas fa-user-plus"></i> Follow Artist
+                    </button>
+                    <button class="btn-action btn-secondary" id="contactArtistBtn">
+                        <i class="fas fa-envelope"></i> Send Message
+                    </button>
+                    <button class="btn-action btn-outline" id="viewAllWorksBtn">
+                        <i class="fas fa-th"></i> View All Works
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="auth-guard.js"></script>
+    <script src="gallery-data.js"></script>
+    <script src="utils.js"></script>
+    <script src="settings.js"></script>
+    <script src="auth.js"></script>
+    <script src="artists.js"></script>
+</body>
+</html>

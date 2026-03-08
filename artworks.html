@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Browse our complete collection of artworks">
+    <title>All Artworks | Image Gallery</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="gallery.css">
+    <link rel="stylesheet" href="pages.css">
+</head>
+<body class="dark-theme">
+    <!-- Header with Navigation -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-images"></i>
+                    <span>Image Gallery</span>
+                </div>
+                <nav class="main-nav">
+                    <a href="gallery.html#home" class="nav-btn">
+                        <i class="fas fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                   
+                    <a href="artworks.html" class="nav-btn active">
+                        <i class="fas fa-palette"></i>
+                        <span>Artwork</span>
+                    </a>
+                    <a href="artists.html" class="nav-btn">
+                        <i class="fas fa-user-tie"></i>
+                        <span>Artist</span>
+                    </a>
+                    <a href="gallery.html#exhibition" class="nav-btn">
+                        <i class="fas fa-landmark"></i>
+                        <span>Exhibition</span>
+                    </a>
+                    <a href="user-collection.html" class="nav-btn">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <span>My Collection</span>
+                    </a>
+                </nav>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <button class="settings-btn" id="settingsBtn">
+                    <i class="fas fa-cog"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav" id="mobileNav">
+        <a href="gallery.html#home" class="mobile-nav-link">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+        </a>
+     
+        <a href="artworks.html" class="mobile-nav-link active">
+            <i class="fas fa-palette"></i>
+            <span>Artwork</span>
+        </a>
+        <a href="artists.html" class="mobile-nav-link">
+            <i class="fas fa-user-tie"></i>
+            <span>Artist</span>
+        </a>
+        <a href="gallery.html#exhibition" class="mobile-nav-link">
+            <i class="fas fa-landmark"></i>
+            <span>Exhibition</span>
+        </a>
+        <a href="user-collection.html" class="mobile-nav-link">
+            <i class="fas fa-cloud-upload-alt"></i>
+            <span>My Collection</span>
+        </a>
+    </div>
+
+    <!-- Page Header -->
+    <section class="page-header artwork-header">
+        <div class="page-header-overlay"></div>
+        <div class="container">
+            <h1><i class="fas fa-palette"></i> All Artworks</h1>
+            <p>Explore our complete collection of exceptional artworks</p>
+        </div>
+    </section>
+
+    <!-- Filter & Sort Controls -->
+    <section class="controls-section artwork-controls-section">
+        <div class="container">
+            <div class="controls-bar">
+                <div class="filter-group category-filter-group">
+                    <label><i class="fas fa-filter"></i> Category:</label>
+                    <select id="categoryFilter" class="control-select">
+                        <option value="all">All Categories</option>
+                        <option value="wall art">Wall Art</option>
+                        <option value="painting">Painting</option>
+                        <option value="abstract">Abstract</option>
+                        <option value="sculpture">Sculpture</option>
+                        <option value="photography">Photography</option>
+                        <option value="wildlife">Wildlife Photography</option>
+                        <option value="seven wonders">Seven Wonders of the World</option>
+                        <option value="digital">Digital Art</option>
+                        <option value="architecture">Architecture</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label><i class="fas fa-tag"></i> Status:</label>
+                    <select id="statusFilter" class="control-select">
+                        <option value="all">All Status</option>
+                        <option value="available">Available</option>
+                        <option value="sold">Sold</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label><i class="fas fa-sort"></i> Sort By:</label>
+                    <select id="sortSelect" class="control-select">
+                        <option value="newest">Newest First</option>
+                        <option value="oldest">Oldest First</option>
+                        <option value="title">Title A-Z</option>
+                        <option value="popular">Most Popular</option>
+                    </select>
+                </div>
+                <div class="search-group">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="searchInput" placeholder="Search artworks..." class="search-input">
+                </div>
+            </div>
+            <div class="category-mini-menu" id="categoryMiniMenu">
+                <button class="category-mini-toggle" id="categoryMiniToggle" type="button">
+                    <i class="fas fa-sliders-h"></i> Filters
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="mobile-filter-popup" id="mobileFilterPopup">
+                    <div class="category-mini-list" id="categoryMiniList">
+                        <!-- Mini menu buttons will be inserted by JavaScript -->
+                    </div>
+                    <div class="mobile-mini-controls">
+                        <div class="mini-control-group">
+                            <label for="mobileStatusFilter"><i class="fas fa-tag"></i> Status</label>
+                            <select id="mobileStatusFilter" class="control-select">
+                                <option value="all">All Status</option>
+                                <option value="available">Available</option>
+                                <option value="sold">Sold</option>
+                            </select>
+                        </div>
+                        <div class="mini-control-group">
+                            <label for="mobileSortSelect"><i class="fas fa-sort"></i> Sort By</label>
+                            <select id="mobileSortSelect" class="control-select">
+                                <option value="newest">Newest First</option>
+                                <option value="oldest">Oldest First</option>
+                                <option value="title">Title A-Z</option>
+                                <option value="popular">Most Popular</option>
+                            </select>
+                        </div>
+                        <div class="mini-control-group">
+                            <label for="mobileSearchInput"><i class="fas fa-search"></i> Search</label>
+                            <input type="text" id="mobileSearchInput" placeholder="Search artworks..." class="search-input">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Artworks Grid -->
+    <section class="artworks-page-section">
+        <div class="container">
+            <div class="results-info">
+                <p><span id="resultsCount">0</span> artworks found</p>
+            </div>
+            <div class="artwork-grid" id="artworkGrid">
+                <!-- Artworks will be loaded by JavaScript -->
+            </div>
+            <div class="no-results" id="noResults" style="display: none;">
+                <i class="fas fa-search"></i>
+                <h3>No artworks found</h3>
+                <p>Try adjusting your filters or search terms</p>
+            </div>
+            
+            <!-- Back to Home Button -->
+            <div class="back-to-home">
+                <a href="gallery.html" class="btn-back-home">
+                    <i class="fas fa-home"></i> Back to Home
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h3>Image Gallery Studio</h3>
+                    <p>Curated digital gallery for collectors, artists, and creative teams building standout visual collections.</p>
+                    <div class="footer-qr">
+                        <a href="https://teja-0999.github.io/gallery-/" target="_blank" rel="noopener noreferrer" aria-label="Open Image Gallery website">
+                            <img src="website-qr.png" alt="QR code for Image Gallery website">
+                        </a>
+                        <p class="footer-qr-text">Scan to open our website</p>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Professional Services</h4>
+                    <ul>
+                        <li>Artist Portfolio Hosting</li>
+                        <li>Collection Curation</li>
+                        <li>Exhibition Planning</li>
+                        <li>Private Viewing Support</li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact Details</h4>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> +1 (555) 123-4567</li>
+                        <li><i class="fas fa-envelope"></i> hello@imagegallery.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Art District, New York</li>
+                        <li><i class="fas fa-clock"></i> Mon-Sat, 10:00 AM - 7:00 PM</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Image Gallery Studio. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Notification -->
+    <div class="notification" id="notification"></div>
+
+    <!-- Image Modal -->
+    <div class="image-modal" id="imageModal">
+        <button class="modal-close" id="modalClose">
+            <i class="fas fa-times"></i>
+        </button>
+        <button class="modal-prev" id="modalPrev">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="modal-next" id="modalNext">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+        <div class="modal-content">
+            <div class="modal-image-container">
+                <img id="modalImage" src="" alt="">
+            </div>
+            <div class="modal-info">
+                <h2 id="modalTitle"></h2>
+                <p id="modalArtist" class="modal-artist"></p>
+                <p id="modalCategory"></p>
+                <p id="modalDescription"></p>
+                <div class="modal-details">
+                    <span><i class="fas fa-palette"></i> <span id="modalMedium"></span></span>
+                    <span><i class="fas fa-calendar"></i> <span id="modalYear"></span></span>
+                </div>
+                <div class="modal-meta">
+                    <span><i class="fas fa-eye"></i> <span id="modalViews"></span> views</span>
+                    <span><i class="fas fa-heart"></i> <span id="modalLikes"></span> likes</span>
+                </div>
+                <div class="modal-actions">
+                    <button class="btn-action" id="likeBtn">
+                        <i class="fas fa-heart"></i> Like
+                    </button>
+                    <button class="btn-action" id="downloadBtn">
+                        <i class="fas fa-download"></i> Download
+                    </button>
+                    <button class="btn-action" id="shareBtn">
+                        <i class="fas fa-share-alt"></i> Share
+                    </button>
+                    <button class="btn-action" id="inquireBtn">
+                        <i class="fas fa-envelope"></i> Inquire
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="auth-guard.js"></script>
+    <script src="gallery-data.js"></script>
+    <script src="utils.js"></script>
+    <script src="settings.js"></script>
+    <script src="auth.js"></script>
+    <script src="artworks.js"></script>
+</body>
+</html>
